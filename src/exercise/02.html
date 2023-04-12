@@ -21,15 +21,10 @@
     const elementProps = {
       className: 'container',
       children: [
-        React.createElement('span', {
-          children: 'Hello'
-        }),
+        React.createElement('span', null, 'Hello'),
         ' ',
-        React.createElement('span', {
-          children: 'World'
-        }),
-
-      ]
+        React.createElement('span', null, 'World'),
+      ],
     }
     const element = React.createElement(elementType, elementProps)
     // 💰 in React, you set this with the "children" prop
