@@ -13,10 +13,21 @@ import '../box-styles.css'
 // matches what the text says it should be
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
+const smallBoxStyles = {backgroundColor: 'lightblue'}
+const mediumBoxStyles = {backgroundColor: 'pink'}
+const largeBoxStyles = {backgroundColor: 'orange'}
 
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+function Box({style, size, children}) {
+    const className = `box box--${size}`
+    console.log(size, children)
+    return (<div style={style} className={className}>
+      {children}
+    </div> )
+}
+
+const smallBox = <Box style={smallBoxStyles} size="small" >small lightblue box</Box>
+const mediumBox = <Box style={mediumBoxStyles} size="medium">medium pink box</Box>
+const largeBox = <Box style={largeBoxStyles} size="large">large orange box</Box>
 
 function App() {
   return (
