@@ -9,20 +9,19 @@ function UsernameForm({onSubmitUsername}) {
   // reference hook to 
   const usernameInputRef = React.useRef()
   //state
-  const [error, setError] = React.useState()
+  const [username, setUsername] = React.useState()
   // 🐨 add a submit event handler here (`handleSubmit`).
   function handleSubmit(event) {
     event.preventDefault()
     // console.dir(event.target)
     // can also use id, name, or index in target
-    const value = usernameInputRef.current.value
-    onSubmitUsername(value)
+    onSubmitUsername(username)
   }
 
   function handleChange(event) {
     const {value} = event.target
-    const isLowerCase = value === value.toLowerCase()
-    setError(isLowerCase ? null : 'Username must be lower case')
+    setUsername(value.toLowerCase())
+    
 
 
 
@@ -47,10 +46,9 @@ function UsernameForm({onSubmitUsername}) {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input onChange={handleChange} ref={usernameInputRef} id="usernameInput" type="text" />
+        <input onChange={handleChange} ref={usernameInputRef} id="usernameInput" type="text" value={username} />
       </div>
-      <div style={{color: 'red'}}>{error}</div>
-      <button disabled={Boolean(error)} type="submit">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   )
 }
