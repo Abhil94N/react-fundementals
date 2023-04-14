@@ -17,15 +17,13 @@ const smallBoxStyles = {backgroundColor: 'lightblue'}
 const mediumBoxStyles = {backgroundColor: 'pink'}
 const largeBoxStyles = {backgroundColor: 'orange'}
 
-function Box({className = '', style,...otherProps}) {
-    console.log(otherProps)
-
-    return <div className={`box box--${className}`} style={{fontStyle: 'italic', ...style}} {...otherProps} />
+function Box({size = '', style,...otherProps}) {
+    return <div className={`box box--${size}`} style={{fontStyle: 'italic', ...style}} {...otherProps} />
 }
 
-const smallBox = <Box style={smallBoxStyles} className="small" >small lightblue box</Box>
-const mediumBox = <Box style={mediumBoxStyles} className="medium">medium pink box</Box>
-const largeBox = <Box style={largeBoxStyles} className="large">large orange box</Box>
+const smallBox = <Box style={smallBoxStyles} size="small" >small lightblue box</Box>
+const mediumBox = <Box style={mediumBoxStyles} size="medium">medium pink box</Box>
+const largeBox = <Box style={largeBoxStyles} size="large">large orange box</Box>
 
 function App() {
   return (
